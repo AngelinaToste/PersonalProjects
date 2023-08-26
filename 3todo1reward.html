@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--main boostrap information and links-->
+<head>
+  <title>3 TODO 1 REWARD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<!--Header/ title box (largest container in the display)-->
+<div class="container-fluid p-5 bg-warning text-white text-center">
+  <h1>3 TO DO 1 REWARD</h1>
+  <p>Set your tasks and recieve a reward after their completion!</p> 
+</div>
+<!--progress bar -->
+  <div id="progressbar">
+	<table>
+		<tr>
+		<td id="done1" style="width: 410px; height: 20px;"></td>
+		<td id="done2" style="width: 410px; height: 20px;"></td>
+		<td id="done3" style="width: 410px; height: 20px;"></td>
+		</tr>
+	</table>
+  </div>
+  
+  <table>
+  <tr>
+  <td >
+<div class="container mt-5 ">
+  <div class="row-sm-4">
+    <div class="col-sm-4">
+     1. <input type="textbox"  id="item1">
+    </div>
+    <div class="col-sm-4">
+     2. <input type="textbox"  id="item2">
+    </div>
+    <div class="col-sm-4">
+     3. <input type="textbox"  id="item3">
+    </div>
+	<div class="col-sm-4">
+     REWARD 1<input type="textbox"  id="reward1">
+	 REWARD 2<input type="textbox"  id="reward2">
+	 REWARD 3<input type="textbox"  id="reward3">
+    </div>
+	<div class="col-sm-4">
+      <button type="submit" class="btn bg-warning" onclick="myTodo()">SUBMIT</button> <br><br><br>
+    </div>
+  </div>
+  </td>
+
+<td>
+ <div class="text-left">
+ <table>
+ <tr>
+	<td><input type='checkbox' id="checks1" onclick="document.getElementById('done1').style.backgroundColor='yellow'; checkBox()"> 1.</td>
+	<td style=" width: 500px;"><div class="col-md-5" id="listitem1"></div></td>
+ </tr>
+ <tr>
+      
+    <td><input type='checkbox'id="checks2" onclick="document.getElementById('done2').style.backgroundColor='yellow'; checkBox()"> 2.</td>
+   <td style="width: 100px;"><div class="col-md-5" id="listitem2"></div></td>
+ <tr>
+ </tr>
+	<td><input type='checkbox' id="checks3" onclick="document.getElementById('done3').style.backgroundColor='yellow'; checkBox()"> 3.</td>
+    <td><div class="col-md-5" id="listitem3"></div></td>
+ <tr>
+ </tr>
+	<td>REWARD:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><div class="col-md-5" id="rewarditem1"></div></td>
+	<tr>
+		<!--this button will clear the form and reset all the previously input information-->
+		<td> <button type="Refresh" class="btn bg-warning" onclick="history.go(0)">RELOAD</button></td> <!--could also name this button clear-->
+	</tr>
+</table>
+</div>
+
+</div>
+
+
+</td>
+<td style="width: 200px" ></td>
+</tr>
+</table>
+
+
+</body>
+</html>
+<Script>
+var check1 = document.getElementById("checks1");
+var check2 = document.getElementById("checks2");
+var check3 = document.getElementById("checks3");
+
+function myTodo() {
+	var task1 = document.getElementById("item1").value;
+	var task2 = document.getElementById("item2").value;
+	var task3 = document.getElementById("item3").value;
+	//var reward1=document.getElementById("reward").value;
+	
+	document.getElementById("listitem1").innerHTML=task1;
+	document.getElementById("listitem2").innerHTML=task2;
+	document.getElementById("listitem3").innerHTML=task3;
+	//document.getElementById("rewarditem1").innerHTML=reward1;
+}
+
+function checkBox(){
+	var reward1=document.getElementById("reward1").value;
+	var reward2=document.getElementById("reward2").value;
+	var reward3=document.getElementById("reward3").value;
+	
+	if (check1.checked==true && check2.checked==true && check3.checked==true)
+	{
+		alert("Congratulations you have now earned your Reward!");
+		let randnum = Math.floor((Math.random() * 3) + 1);
+		if(randnum==1)
+		{
+			document.getElementById("rewarditem1").innerHTML=reward1;
+		}
+		else if(randnum==2)
+		{
+			document.getElementById("rewarditem1").innerHTML=reward2;
+		}
+		else if(randnum==3)
+		{
+			document.getElementById("rewarditem1").innerHTML=reward3;
+		}
+	}
+}
+
+//in the future, for this project I can add a page that is a 5 tasks then a reward. I also want to eventually set
+// a list of rewards and shuffle them and pick one by the time the third task is completed and checked off 
+// (in the future, I can also make an animated spinning wheel to choose my reward.)
+</script>
